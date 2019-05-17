@@ -4,7 +4,7 @@
 
 # Pown CDB
 
-Pown CDB is a Chrome Debug Protocol utility. The main goal of the tool is to automate common tasks to help debug web applications from the command-line and actively monitor and intercept HTTP requests and responses, useful during penetration tests.
+Pown CDB is a Chrome Debug Protocol utility. The main goal of the tool is to automate common tasks to help debug web applications from the command-line and actively monitor and intercept HTTP requests and responses. This is particularly useful during penetration tests and other types of security assessments and investigations.
 
 | ![screenshot](https://media.githubusercontent.com/media/pownjs/pown-cdb/master/screenshots/01.png) |
 |-|
