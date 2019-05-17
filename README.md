@@ -146,4 +146,4 @@ As soon as you start using the browser, Pown CDB will record and display the tra
 
 ![screenshot](https://media.githubusercontent.com/media/pownjs/pown-cdb/master/screenshots/03.png)
 
-Requests are captured and opened in your default shell editor (`$EDITOR`).
+Requests are captured and opened in your default shell editor (`$EDITOR`). Make the desired changes, save and quit. The original request will be replaced with your changes.
