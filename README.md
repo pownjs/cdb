@@ -103,3 +103,47 @@ Options:
   --secure, -s   HTTPS/WSS frontend  [boolean] [default: false]
   --blessed, -b  Start with blessed ui  [boolean] [default: false]
 ```
+
+## Tutorials
+
+### Web Application Security Assessment
+
+Let's explore how to use Pown CDB during a typical web app security engagments.
+
+First, ensure that you have the latest pown installed:
+
+```sh
+$ npm install -g pown
+```
+
+If you have pown installed, make sure you have the latest version:
+
+```sh
+$ pown update
+```
+
+To get started with Pown CDB we need a Chrome browser instance (other browsers are also supported) with chrome debug remote interface enabled and listening on localhost:
+
+```sh
+$ pown cdb launch --port 9333
+```
+
+Once the chrome browser instance is running, hook it with pown cdb network utility:
+
+```sh
+$ pown cdb network --port 9333 -b
+```
+
+The `-b` flag is used to start Pown CDB with a curses-based user interface:
+
+![screenshot](https://media.githubusercontent.com/media/pownjs/pown-cdb/master/screenshots/01.png)
+
+Use key-combo `shift + ?` to get a list of available shortcuts:
+
+![screenshot](https://media.githubusercontent.com/media/pownjs/pown-cdb/master/screenshots/02.png)
+
+As soon as you start using the browser, Pown CDB will record and display the traffic in the user interface. To intercept requests use key-combo `ctrl + t`.
+
+![screenshot](https://media.githubusercontent.com/media/pownjs/pown-cdb/master/screenshots/03.png)
+
+Requests are captured and opened in your default shell editor (`$EDITOR`).
