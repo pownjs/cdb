@@ -21,6 +21,10 @@ This tool is part of [secapps.com](https://secapps.com) open-source initiative.
   https://secapps.com
 ```
 
+### Authors
+
+* [@pdp](https://twitter.com/pdp) - https://pdparchitect.github.io/www/
+
 ## Quickstart
 
 This tool is meant to be used as part of [Pown.js](https://github.com/pownjs/pown) but it can be invoked separately as an independent tool.
