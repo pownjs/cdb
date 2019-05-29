@@ -2,7 +2,7 @@
 
 COMMANDS="pown"
 SUBCOMMANDS="cdb"
-SUBSUBCOMMANDS="launch navigate network screenshot"
+SUBSUBCOMMANDS="launch navigate network cookies screenshot"
 
 export POWN_ROOT=.
 

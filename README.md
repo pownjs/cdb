@@ -74,6 +74,7 @@ Commands:
   pown cdb launch             Launch server application such as chrome, firefox, opera and edge  [aliases: start]
   pown cdb navigate <url>     Go to the specified url  [aliases: goto, go]
   pown cdb network            Chrome Debug Protocol Network Monitor  [aliases: net, sniff, proxy]
+  pown cdb cookies            Dump current page cookies  [aliases: cookie]
   pown cdb screenshot <file>  Screenshot the current page  [aliases: capture, shoot, shot]
 
 Options:
@@ -124,6 +125,21 @@ Options:
   --secure, -s   HTTPS/WSS frontend  [boolean] [default: false]
   --output, -o   Output directory/file  [array] [default: []]
   --blessed, -b  Start with blessed ui  [boolean] [default: false]
+```
+
+### `pown cdb cookies`
+
+```
+pown cdb cookies
+
+Dump current page cookies
+
+Options:
+  --version     Show version number  [boolean]
+  --help        Show help  [boolean]
+  --host, -H    Remote debugging host  [string] [default: "localhost"]
+  --port, -p    Remote debugging port  [number] [default: 9222]
+  --secure, -s  HTTPS/WSS frontend  [boolean] [default: false]
 ```
 
 ### `pown cdb screenshot`
