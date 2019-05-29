@@ -1,6 +1,7 @@
 exports.yargs = {
     command: 'network',
     describe: 'Chrome Debug Protocol Network Monitor',
+    aliases: ['net', 'sniff', 'proxy'],
 
     builder: (yargs) => {
         const { hasNodeModule } = require('@pown/modules')

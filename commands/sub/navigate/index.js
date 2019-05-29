@@ -1,6 +1,7 @@
 exports.yargs = {
     command: 'navigate <url>',
     describe: 'Go to the specified url',
+    aliases: ['goto', 'go'],
 
     builder: (yargs) => {
         yargs.option('host', {

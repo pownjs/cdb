@@ -1,6 +1,7 @@
 exports.yargs = {
     command: 'launch',
     describe: 'Launch server application such as chrome, firefox, opera and edge',
+    aliases: ['start'],
 
     builder: (yargs) => {
         yargs.option('port', {
