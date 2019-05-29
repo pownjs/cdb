@@ -7,6 +7,7 @@ exports.yargs = {
         yargs.command(require('./sub/launch').yargs)
         yargs.command(require('./sub/navigate').yargs)
         yargs.command(require('./sub/network').yargs)
+        yargs.command(require('./sub/cookies').yargs)
         yargs.command(require('./sub/screenshot').yargs)
     }
 }
