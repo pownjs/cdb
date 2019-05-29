@@ -1,6 +1,7 @@
 exports.yargs = {
     command: 'cdb <command>',
     describe: 'Chrome Debug Protocol Tool',
+    aliases: ['cdp', 'chrome'],
 
     builder: (yargs) => {
         yargs.command(require('./sub/launch').yargs)
