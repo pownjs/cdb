@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "cdb": "POWN_ROOT=. pown-cli cdb",
-    "text": "mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
