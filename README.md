@@ -71,8 +71,10 @@ pown cdb <command>
 Chrome Debug Protocol Tool
 
 Commands:
-  pown cdb launch   Launch server application such as chrome, firefox, opera and edge
-  pown cdb network  Chrome Debug Protocol Network Monitor
+  pown cdb launch             Launch server application such as chrome, firefox, opera and edge  [aliases: start]
+  pown cdb navigate <url>     Go to the specified url  [aliases: goto, go]
+  pown cdb network            Chrome Debug Protocol Network Monitor  [aliases: net, sniff, proxy]
+  pown cdb screenshot <file>  Screenshot the current page  [aliases: capture, shoot, shot]
 
 Options:
   --version  Show version number  [boolean]
@@ -92,6 +94,21 @@ Options:
   --port, -p  Remote debugging port  [number] [default: 9222]
 ```
 
+### `pown cdb navigate`
+
+```
+pown cdb navigate <url>
+
+Go to the specified url
+
+Options:
+  --version     Show version number  [boolean]
+  --help        Show help  [boolean]
+  --host, -H    Remote debugging host  [string] [default: "localhost"]
+  --port, -p    Remote debugging port  [number] [default: 9222]
+  --secure, -s  HTTPS/WSS frontend  [boolean] [default: false]
+```
+
 ### `pown cdb network`
 
 ```
@@ -105,8 +122,23 @@ Options:
   --host, -H     Remote debugging host  [string] [default: "localhost"]
   --port, -p     Remote debugging port  [number] [default: 9222]
   --secure, -s   HTTPS/WSS frontend  [boolean] [default: false]
-  --output, -o   Output directory  [array] [default: []]
+  --output, -o   Output directory/file  [array] [default: []]
   --blessed, -b  Start with blessed ui  [boolean] [default: false]
+```
+
+### `pown cdb screenshot`
+
+```
+pown cdb screenshot <file>
+
+Screenshot the current page
+
+Options:
+  --version     Show version number  [boolean]
+  --help        Show help  [boolean]
+  --host, -H    Remote debugging host  [string] [default: "localhost"]
+  --port, -p    Remote debugging port  [number] [default: 9222]
+  --secure, -s  HTTPS/WSS frontend  [boolean] [default: false]
 ```
 
 ## Tutorials
