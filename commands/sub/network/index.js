@@ -26,6 +26,13 @@ exports.yargs = {
             default: false,
         })
 
+        yargs.option('output', {
+            describe: 'Output directory/file',
+            type: 'array',
+            alias: 'o',
+            default: []
+        })
+
         if (hasNodeModule('@pown/blessed')) {
             yargs.options('blessed', {
                 type: 'boolean',
@@ -37,7 +44,7 @@ exports.yargs = {
     },
 
     handler: async(argv) => {
-        const { host, port, secure, blessed } = argv
+        const { host, port, secure, output, blessed } = argv
 
         const { EventEmitter } = require('events')
 
@@ -82,6 +89,12 @@ exports.yargs = {
         }
         else {
             require('./handlers/log')(argv, sink, tool)
+        }
+
+        if (output.length) {
+            output.map((output) => {
+                require('./handlers/output')(argv, sink, output)
+            })
         }
     }
 }

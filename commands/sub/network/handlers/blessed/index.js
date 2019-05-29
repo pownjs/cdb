@@ -1,15 +1,16 @@
+const colors = require('@pown/cli/lib/colors')
+const blessed = require('@pown/blessed/lib/blessed')
+const Quit = require('@pown/blessed/lib/auxiliary/quit')
+const Help = require('@pown/blessed/lib/auxiliary/help')
+const { Semaphore } = require('@pown/async/lib/semaphore')
+const Console = require('@pown/blessed/lib/auxiliary/console')
+const HTTPView = require('@pown/blessed/lib/auxiliary/httpview')
+
+const Interceptor = require('./interceptor')
+const { EMPTY_BUFFER } = require('../../lib/consts')
+const { buildHttpTransaction } = require('../../lib/http')
+
 module.exports = (argv, sink, tool) => {
-    const colors = require('@pown/cli/lib/colors')
-    const blessed = require('@pown/blessed/lib/blessed')
-    const Quit = require('@pown/blessed/lib/auxiliary/quit')
-    const Help = require('@pown/blessed/lib/auxiliary/help')
-    const { Semaphore } = require('@pown/async/lib/semaphore')
-    const Console = require('@pown/blessed/lib/auxiliary/console')
-    const HTTPView = require('@pown/blessed/lib/auxiliary/httpview')
-
-    const Interceptor = require('./interceptor')
-    const { EMPTY_BUFFER } = require('./consts')
-
     const s = blessed.screen({ name: 'Network' })
 
     const v = new HTTPView()
@@ -70,20 +71,8 @@ module.exports = (argv, sink, tool) => {
         toggleInterception()
     })
 
-    sink.on('transaction', ({ request, response, requestContext }) => {
-        v.addTransaction({
-            id: requestContext.requestId,
-
-            method: request.method,
-            uri: request.url,
-            headers: request.headers,
-            body: request.postData ? Buffer.from(request.postData) : EMPTY_BUFFER,
-
-            responseCode: response.status,
-            responseMessage: response.statusText,
-            responseHeaders: response.headers,
-            responseBody: response.body ? Buffer.from(response.body) : EMPTY_BUFFER
-        })
+    sink.on('transaction', (chromeTransaction) => {
+        v.addTransaction(buildHttpTransaction(chromeTransaction))
     })
 
     const sem = new Semaphore(1)
