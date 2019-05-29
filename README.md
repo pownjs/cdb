@@ -105,6 +105,7 @@ Options:
   --host, -H     Remote debugging host  [string] [default: "localhost"]
   --port, -p     Remote debugging port  [number] [default: 9222]
   --secure, -s   HTTPS/WSS frontend  [boolean] [default: false]
+  --output, -o   Output directory/file  [array] [default: []]
   --blessed, -b  Start with blessed ui  [boolean] [default: false]
 ```
 
