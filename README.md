@@ -1,6 +1,8 @@
 [![Follow on Twitter](https://img.shields.io/twitter/follow/pownjs.svg?logo=twitter)](https://twitter.com/pownjs)
 [![NPM](https://img.shields.io/npm/v/@pown/cdb.svg)](https://www.npmjs.com/package/@pown/cdb)
 [![Fury](https://img.shields.io/badge/version-2x%20Fury-red.svg)](https://github.com/pownjs/lobby)
+[![SecApps](https://img.shields.io/badge/SecApps-black.svg)](https://secapps.com)
+[![Websecurify](https://img.shields.io/badge/Websecurify-orange.svg)](https://websecurify.com)
 
 # Pown CDB
 
@@ -73,7 +75,7 @@ Chrome Debug Protocol Tool
 Commands:
   pown cdb launch             Launch server application such as chrome, firefox, opera and edge  [aliases: start]
   pown cdb navigate <url>     Go to the specified url  [aliases: goto, go]
-  pown cdb network            Chrome Debug Protocol Network Monitor  [aliases: net, sniff, proxy]
+  pown cdb network            Chrome Debug Protocol Network Monitor  [aliases: net, sniff, proxy, mon, monitor]
   pown cdb cookies            Dump current page cookies  [aliases: cookie]
   pown cdb screenshot <file>  Screenshot the current page  [aliases: capture, shoot, shot]
 
@@ -90,9 +92,12 @@ pown cdb launch
 Launch server application such as chrome, firefox, opera and edge
 
 Options:
-  --version   Show version number  [boolean]
-  --help      Show help  [boolean]
-  --port, -p  Remote debugging port  [number] [default: 9222]
+  --version                 Show version number  [boolean]
+  --help                    Show help  [boolean]
+  --port, -p                Remote debugging port  [number] [default: 9222]
+  --xss-auditor, -x         Turn on/off XSS auditor  [boolean] [default: true]
+  --certificate-errors, -c  Turn on/off certificate errors  [boolean] [default: true]
+  --pentest, -t             Start with prefered settings for pentesting  [boolean] [default: false]
 ```
 
 ### `pown cdb navigate`
