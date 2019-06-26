@@ -1,5 +1,5 @@
 exports.yargs = {
-    command: 'launch',
+    command: 'launch [url]',
     describe: 'Launch server application such as chrome, firefox, opera and edge',
     aliases: ['start'],
 
@@ -41,7 +41,7 @@ exports.yargs = {
     },
 
     handler: async(argv) => {
-        const { port: PORT, xssAuditor, certificateErrors, proxy, pentest } = argv
+        const { port: PORT, xssAuditor, certificateErrors, proxy, pentest, url } = argv
 
         const commonArgs = ['--no-first-run', `--remote-debugging-port=${PORT}`]
 
@@ -56,12 +56,16 @@ exports.yargs = {
         if (proxy) {
             if (proxy === 'auto') {
                 if (pentest) {
-                    commonArgs.push('--proxy-server', 'http=localhost:8080')
+                    commonArgs.push('--proxy-server=localhost:8080')
                 }
             }
             else {
-                commonArgs.push('--proxy-server', proxy)
+                commonArgs.push(`--proxy-server=${proxy}`)
             }
+        }
+
+        if (url) {
+            commonArgs.push(url)
         }
 
         const { spawn } = require('child_process')
