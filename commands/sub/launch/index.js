@@ -25,6 +25,13 @@ exports.yargs = {
             default: true
         })
 
+        yargs.option('proxy', {
+            describe: 'Set proxy settings',
+            type: 'string',
+            alias: 'P',
+            default: ''
+        })
+
         yargs.option('pentest', {
             describe: 'Start with prefered settings for pentesting',
             type: 'boolean',
@@ -34,9 +41,9 @@ exports.yargs = {
     },
 
     handler: async(argv) => {
-        const { port: PORT, xssAuditor, certificateErrors, pentest } = argv
+        const { port: PORT, xssAuditor, certificateErrors, proxy, pentest } = argv
 
-        const commonArgs = ['--no-first-run', '--remote-debugging-port=$PORT']
+        const commonArgs = ['--no-first-run', `--remote-debugging-port=${PORT}`]
 
         if (!xssAuditor || pentest) {
             commonArgs.push('--disable-xss-auditor')
@@ -46,11 +53,22 @@ exports.yargs = {
             commonArgs.push('--ignore-certificate-errors')
         }
 
+        if (proxy) {
+            if (proxy === 'auto') {
+                if (pentest) {
+                    commonArgs.push('--proxy-server', 'http=localhost:8080')
+                }
+            }
+            else {
+                commonArgs.push('--proxy-server', proxy)
+            }
+        }
+
         const { spawn } = require('child_process')
 
         switch (process.platform) {
             case 'darwin':
-                const args = ['-c', '"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --user-data-dir=$(mktemp -d /tmp/google-chome.XXXXXXX)' + commonArgs.join(' ')]
+                const args = ['-c', `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --user-data-dir=$(mktemp -d /tmp/google-chome.XXXXXXX) ${commonArgs.join(' ')}`]
 
                 spawn('/bin/bash', args, { detached: true, stdio: 'ignore', env: { PORT } }).unref()
 
@@ -60,7 +78,7 @@ exports.yargs = {
                 console.warn('linux is currently not supported')
 
                 console.info('launch chrome manually with the following command:')
-                console.info('chrome --user-data-dir=$(mktemp -d /tmp/google-chome.XXXXXXX) --no-first-run --remote-debugging-port=$PORT')
+                console.info(`chrome --user-data-dir=$(mktemp -d /tmp/google-chome.XXXXXXX) ${commonArgs.join(' ')}`)
 
                 break
 
@@ -68,7 +86,7 @@ exports.yargs = {
                 console.warn('win32 is currently not supported')
 
                 console.info('launch chrome manually with the following command:')
-                console.info('chrome --user-data-dir=$(mktemp -d /tmp/google-chome.XXXXXXX) --no-first-run --remote-debugging-port=$PORT')
+                console.info(`chrome --user-data-dir=$(mktemp -d /tmp/google-chome.XXXXXXX) ${commonArgs.join(' ')}`)
 
                 break
         }
