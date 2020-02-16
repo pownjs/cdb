@@ -41,7 +41,7 @@ class RequestInterceptor extends Box {
 
             ...options,
 
-            tags: true,
+            tags: true
         }
 
         super(options)
