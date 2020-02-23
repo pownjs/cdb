@@ -4,7 +4,7 @@ exports.yargs = {
     aliases: ['start'],
 
     builder: (yargs) => {
-        yargs.option('port', {
+        yargs.option('debugging-port', {
             describe: 'Remote debugging port',
             type: 'number',
             alias: 'p',
@@ -43,8 +43,8 @@ exports.yargs = {
     handler: async(argv) => {
         const { launch } = require('../../../lib/launch')
 
-        const { port, xssAuditor, certificateErrors, proxy, pentest, url } = argv || {}
+        const { debuggingPort, xssAuditor, certificateErrors, proxy, pentest, url } = argv || {}
 
-        await launch({ port, xssAuditor, certificateErrors, proxy, pentest, url })
+        await launch({ debuggingPort, xssAuditor, certificateErrors, proxy, pentest, url })
     }
 }
