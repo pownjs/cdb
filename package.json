@@ -24,7 +24,7 @@
   "homepage": "https://github.com/pownjs/pown-cdb#readme",
   "devDependencies": {
     "@pown/blessed": "^2.3.0",
-    "@pown/cli": "^2.20.0",
+    "@pown/cli": "^2.23.0",
     "@pown/preferences": "^2.3.0"
   },
   "pown": {
