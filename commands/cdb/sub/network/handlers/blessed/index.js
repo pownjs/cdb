@@ -7,8 +7,8 @@ const Console = require('@pown/blessed/lib/auxiliary/console')
 const HTTPView = require('@pown/blessed/lib/auxiliary/httpview')
 
 const Interceptor = require('./interceptor')
-const { EMPTY_BUFFER } = require('../../../lib/consts')
-const { buildHttpTransaction } = require('../../../lib/http')
+const { EMPTY_BUFFER } = require('../../lib/consts')
+const { buildHttpTransaction } = require('../../lib/http')
 
 module.exports = (argv, sink, tool) => {
     const s = blessed.screen({ name: 'Network' })
