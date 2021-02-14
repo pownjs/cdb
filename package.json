@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/pownjs/pown-cdb#readme",
   "devDependencies": {
-    "@pown/blessed": "^2.3.0",
-    "@pown/cli": "^2.23.0",
+    "@pown/blessed": "^2.3.2",
+    "@pown/cli": "^2.25.3",
     "@pown/preferences": "^2.3.0"
   },
   "pown": {
@@ -33,7 +33,7 @@
     ]
   },
   "dependencies": {
-    "@pown/async": "^2.7.0",
+    "@pown/async": "^2.11.0",
     "@pown/http": "^2.1.0",
     "chrome-remote-interface": "^0.28.2"
   }
