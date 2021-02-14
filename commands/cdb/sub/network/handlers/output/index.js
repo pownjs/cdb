@@ -2,7 +2,7 @@ const path = require('path')
 const { lstatSync, mkdir, writeFile } = require('fs')
 const { buildRequest, buildResponse } = require('@pown/http')
 
-const { buildHttpTransaction } = require('../../lib/http')
+const { buildHttpTransaction } = require('../../../lib/http')
 
 const writeHandler = (err) => {
     if (err) {

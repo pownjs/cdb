@@ -41,7 +41,7 @@ exports.yargs = {
     },
 
     handler: async(argv) => {
-        const { launch } = require('../../../lib/launch')
+        const { launch } = require('../../../../lib/launch')
 
         const { debuggingPort, xssAuditor, certificateErrors, proxy, pentest, url } = argv || {}
 

@@ -49,7 +49,7 @@ exports.yargs = {
 
         const { EventEmitter } = require('events')
 
-        const { NetworkTransactionTool } = require('../../../lib/network')
+        const { NetworkTransactionTool } = require('../../../../lib/network')
 
         const sink = new EventEmitter()
 

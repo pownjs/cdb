@@ -22,19 +22,19 @@
     "url": "https://github.com/pownjs/pown-cdb/issues"
   },
   "homepage": "https://github.com/pownjs/pown-cdb#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "@pown/async": "^2.11.0",
     "@pown/blessed": "^2.3.2",
     "@pown/cli": "^2.25.3",
-    "@pown/preferences": "^2.3.0"
+    "@pown/http": "^2.1.0",
+    "@pown/preferences": "^2.3.0",
+    "@pown/toolchain": "^2.0.0",
+    "chrome-remote-interface": "^0.28.2"
   },
   "pown": {
     "commands": [
-      "commands/cdb.js"
+      "commands/cdb"
     ]
-  },
-  "dependencies": {
-    "@pown/async": "^2.11.0",
-    "@pown/http": "^2.1.0",
-    "chrome-remote-interface": "^0.28.2"
   }
 }
